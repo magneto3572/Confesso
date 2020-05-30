@@ -1,0 +1,63 @@
+@extends('layouts.app')
+@section('content')
+    @include('layouts.nav_layout')
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="content">
+                <div class="col-md-12">
+
+                    <div class="panel panel-primary">
+                        <div style="text-align: center;"><span class="label label-success" id="delConfirm"
+                                                               style="font-size: 15px"></span>
+                        </div>
+
+                        <div class="panel-heading">Confess Timeline</div>
+                        <div class="panel-body">
+                            <table class="table table-hover" id="myConfessTable">
+                                @foreach($myPosts as $posts)
+                                    @php
+                                        if(!empty($posts)){$category=\App\user_category::find($posts->cat_id);}
+                                    @endphp
+                                    <tr class="">
+                                        <td><p class="header"><i class="fa fa-arrows-alt"></i> {{$posts->posts}}
+                                                <span class="text-primary"> [ {{ $category->cat_name}} ] </span>
+                                            </p>on {{$posts->created_at->diffForHumans()}}</td>
+                                        <td>
+                                            <button data-id="{{$posts->id}}" class="btn btn-danger delete"
+                                                    data-toggle="modal" data-target="#myModal"><i
+                                                    class="fa fa-minus-circle" aria-hidden="true"></i> Remove
+                                            </button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                            {{$myPosts->links()}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <input type="hidden" id="delepostInputField">
+                    <h4>Do you want to delete this post?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                    <button type="button" id='yesbut' class="btn btn-danger deletePost">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+<script>
+    var token = '{{\Illuminate\Support\Facades\Session::token()}}';
+</script>
+
+
