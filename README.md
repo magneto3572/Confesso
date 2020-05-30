@@ -6,9 +6,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
-
+<h5>Screenshots</h5>
 <div align="center">
     <img src="/screenshots/1.png" width="400px"</img> 
+     <img src="/screenshots/2.png" width="400px"</img>
+     <img src="/screenshots/3.png" width="400px"</img>
+     <img src="/screenshots4.png" width="400px"</img>
+     <img src="/screenshots/5.png" width="400px"</img>
+     <img src="/screenshots/6.png" width="400px"</img>
+     <img src="/screenshots/7.png" width="400px"</img>
 </div>
 
 ## About Laravel
